@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.MoviesDetailsActivity"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgMovieBanner"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:layout_gravity=""
+            android:contentDescription="Movie Image"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearance="?attr/shapeAppearanceMediumComponent"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Card.Media" />
+
+        <ToggleButton
+            android:id="@+id/btnFavorite"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="32dp"
+            android:background="@drawable/ic_favorite"
+            android:checked="false"
+            android:text=""
+            android:textOff=""
+            android:textOn=""
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/txtTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/txtTitle"
+            app:layout_constraintVertical_bias="0.545" />
+
+        <TextView
+            android:id="@+id/txtTitle"
+            style="@style/DetailedMovieTitle"
+            android:layout_width="280dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="52dp"
+            app:layout_constraintEnd_toStartOf="@+id/btnFavorite"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgMovieBanner"
+            tools:text="Ford vs Ferrari" />
+
+        <TextView
+            android:id="@+id/txtMovieYear"
+            style="@style/InfoMovieDetailsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="@+id/txtTitle"
+            app:layout_constraintTop_toBottomOf="@+id/txtTitle"
+            tools:text="2020" />
+
+        <TextView
+            android:id="@+id/txtPage"
+            style="@style/InfoMovieDetailsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            app:layout_constraintStart_toEndOf="@+id/txtMovieYear"
+            app:layout_constraintTop_toTopOf="@+id/txtMovieYear"
+            tools:text="PG-L" />
+
+        <TextView
+            android:id="@+id/txtMovieLength"
+            style="@style/InfoMovieDetailsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            app:layout_constraintStart_toEndOf="@+id/txtPage"
+            app:layout_constraintTop_toTopOf="@+id/txtPage"
+            tools:text="2h55min" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvMovieGenres"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintStart_toStartOf="@+id/txtMovieYear"
+            app:layout_constraintTop_toBottomOf="@+id/txtMovieYear"
+            tools:ignore="MissingConstraints"
+            tools:listitem="@layout/activity_movies_type" />
+
+        <ImageButton
+            android:id="@+id/btnReturn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:backgroundTint="@android:color/transparent"
+            android:contentDescription="@string/return_home"
+            android:src="@drawable/ic_arrow"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <FrameLayout
+            android:id="@+id/frameLayout"
+            android:layout_width="160dp"
+            android:layout_height="120dp"
+            app:layout_constraintBottom_toTopOf="@+id/btnFavorite"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <com.google.android.material.card.MaterialCardView
+                style="@style/LabelRatingCardView"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                app:cardElevation="16dp" />
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/txtUsersRating"
+            style="@style/SmallRatingText"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="50dp"
+            android:text="@string/users_review_txt"
+            app:layout_constraintBottom_toTopOf="@+id/btnFavorite"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/txtMovieRating"
+            style="@style/PercentText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/txtUsersRating"
+            app:layout_constraintStart_toStartOf="@+id/txtUsersRating"
+            tools:text="81%" />
+
+        <ImageView
+            android:id="@+id/imgLabelStar"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="20dp"
+            android:contentDescription="@string/movie_rate"
+            android:src="@drawable/ic_star"
+            app:layout_constraintBottom_toBottomOf="@+id/txtUsersRating"
+            app:layout_constraintEnd_toStartOf="@+id/txtUsersRating"
+            app:layout_constraintTop_toTopOf="@+id/txtMovieRating" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvMovieCast"
+            android:layout_width="wrap_content"
+            android:layout_height="200dp"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtCast"
+            app:layout_constraintVertical_bias="0.0"
+            tools:listitem="@layout/activity_cast" />
+
+        <TextView
+            android:id="@+id/txtSinopsysTitle"
+            style="@style/TitlesInDetailedMovie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/synopsis"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/txtMovieYear"
+            app:layout_constraintTop_toBottomOf="@id/rcvMovieGenres"
+            tools:ignore="NotSibling" />
+
+        <TextView
+            android:id="@+id/txtSinopsys"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/txtSinopsysTitle"
+            app:layout_constraintTop_toBottomOf="@+id/txtSinopsysTitle" />
+
+        <TextView
+            android:id="@+id/txtCast"
+            style="@style/TitlesInDetailedMovie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/cast"
+            app:layout_constraintStart_toStartOf="@+id/txtSinopsys"
+            app:layout_constraintTop_toBottomOf="@+id/txtSinopsys" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/crdvMovie"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="50dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.213"
+            card_view:cardElevation="80dp">
+
+                <ImageView
+                    android:id="@+id/imgMovie"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="Movie banner" />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/txtMovieTitle"
+            style="@style/MovieTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginHorizontal="64dp"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="TextView"
+            android:textAlignment="center"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/crdvMovie" />
+
+        <TextView
+            android:id="@+id/txtRating"
+            style="@style/PercentText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="TextView"
+            app:layout_constraintEnd_toEndOf="@+id/txtMovieTitle"
+            app:layout_constraintHorizontal_bias="0.587"
+            app:layout_constraintStart_toStartOf="@+id/txtMovieTitle"
+            app:layout_constraintTop_toBottomOf="@+id/txtMovieTitle" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgStarRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/txtRating"
+            app:layout_constraintEnd_toStartOf="@+id/txtRating"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/txtRating"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/ic_star" />
+
+        <ToggleButton
+            android:id="@+id/btnFavorite"
+            android:layout_width="23dp"
+            android:layout_height="25dp"
+            android:background="@drawable/ic_favorite"
+            android:checked="false"
+            android:text=""
+            android:textOff=""
+            android:textOn=""
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/txtMovieTitle"
+            app:layout_constraintStart_toEndOf="@+id/txtMovieTitle"
+            app:layout_constraintTop_toTopOf="@+id/txtMovieTitle" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

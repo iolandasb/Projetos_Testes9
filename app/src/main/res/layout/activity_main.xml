@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".presentation.MainActivity">
+
+        <!--<LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="320dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="20dp">-->
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".presentation.MainActivity">
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/btnSearch"
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:background="#FFFFFF"
+                    app:srcCompat="@drawable/ic_search"
+                    tools:ignore="VectorDrawableCompat"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <EditText
+                    android:id="@+id/edtSearch"
+                    android:layout_width="320dp"
+                    android:layout_height="52dp"
+                    android:textColor="@color/searchColor"
+                    app:layout_constraintBottom_toBottomOf="@+id/btnSearch"
+                    app:layout_constraintStart_toEndOf="@+id/btnSearch"
+                    app:layout_constraintTop_toTopOf="@+id/btnSearch"/>
+
+        <!--</LinearLayout>-->
+
+        <ImageView
+            android:id="@+id/imgRectangle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="24dp"
+            android:visibility="gone"
+            app:srcCompat="@drawable/ic_green_line"
+            app:layout_constraintStart_toStartOf="@+id/btnSearch"
+            app:layout_constraintTop_toBottomOf="@+id/btnSearch"/>
+
+        <TextView
+            android:id="@+id/txtSearchMode"
+            style="@style/MovieTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginLeft="16dp"
+            android:visibility="gone"
+            android:fontFamily="@font/nunito_sans_regular"
+            android:text="Modo pesquisa"
+            app:layout_constraintStart_toStartOf="@+id/imgRectangle"
+            app:layout_constraintTop_toBottomOf="@+id/imgRectangle"/>
+
+        <TextView
+            android:id="@+id/txtTryAgain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginLeft="16dp"
+            android:visibility="gone"
+            android:text="Voltar ao início"
+            android:textColor="#11C76F"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/txtSearchMode"
+            app:layout_constraintTop_toBottomOf="@+id/txtSearchMode" />
+
+        <FrameLayout
+            android:id="@+id/searchFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/txtTryAgain"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tablayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:tabIndicator="@drawable/ic_green_line"
+            android:clickable="true"
+            android:focusable="true"
+            app:tabIndicatorFullWidth="false"
+            style="@style/TabLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtSearchMode"/>
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tablayout"  />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
